@@ -1,30 +1,31 @@
-file = open("Test.hx", "rb")
-ln   = 0
+with open("File.hx", "rb") as f: file = f.read()
 
-ws = [9, 10, 13, 32]
+size = len(file)
+ws = b"\t\n\r "
+i = 0
+mem = ""
 names = {}
-mem = []
 
-def word():
-	global line, col, ws
-	word = ""
-	while not(line[col] in ws):
-		word += chr(line[col])
-		col  += 1
-	return word
-	
-while 1:
-	line = file.readline()
-	ln += 1
-	if line[0] != 35:
-		col = 0
-		source = word()
-		while line[col] in ws: col += 1
-		target = word()
-		print(ln, line)
-		while line[col] in ws: col += 1
-		if line[col] == 36:
-			col += 1
-			names[word()] = ln
-	print(line)
-	# print(ln, line)
+while i < size:
+	if file[i] in b'01':   				#adding bits
+		mem += chr(file[i])
+		i += 1
+	elif file[i:(i+2)] == b'//':		#for commenting 
+		while file[i] != 13: i += 1		# ord(13) -> '\r'
+	else:
+		print("Invalid character:", chr(file[i]))
+		print(file[i:(i+1)])
+		quit()
+	while file[i] in ws:
+		i += 1
+		if i >= size: break
+
+mSize = len(mem)
+
+i = 0
+
+out = open("File.lx", "wb")
+while i < mSize:
+	out.write(bytes([int(mem[i:(i+7)], 2)]))
+	i += 8
+out.close()
