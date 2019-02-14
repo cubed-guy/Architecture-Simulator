@@ -1,5 +1,5 @@
 # Architecture-Simulator
-This in the initial stages will be a python based custom language compiler.
+These in the initial stages will be a python based custom language compiler.
 (Python for compiling? Umm, that's like the only language I know.)
 
 The architecture is based on an instruction set with only ONE instruction, namely assign.
