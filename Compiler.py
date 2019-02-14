@@ -1,4 +1,4 @@
-file = open("Test.hx", "rb")
+file = open("File.hx", "rb")
 ln   = 0
 
 ws = [9, 10, 13, 32]
