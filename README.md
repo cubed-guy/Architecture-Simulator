@@ -1,4 +1,4 @@
-# Architecture-Simulator
+# Architecture Simulator
 These in the initial stages will be a python based custom language compiler.
 (Python for compiling? Umm, that's like the only language I know.)
 
