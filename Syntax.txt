@@ -1,8 +1,6 @@
-#Programming language syntax
-
 atoms = "mem", "op", "fetch" '$', '(', ')', '=', <name>, <bit>
 
-<name> = {<bits>}
+<name> '=' '('<bits>')'
 
 #pointers?
 #functions?
