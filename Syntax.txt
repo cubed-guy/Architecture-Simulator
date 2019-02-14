@@ -1,13 +1,10 @@
 #Programming language syntax
 
-atoms = "mem", "op", '$', '(', ')', '=', <\sqws>
+atoms = "mem", "op", "fetch" '$', '(', ')', '=', <name>, <bit>
 
 <name> = {<bits>}
 
 #pointers?
 #functions?
-#
-#okay, functions:
-#
 #wait, won't that be just assigning fetch?
 #yes
