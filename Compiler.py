@@ -27,4 +27,4 @@ while 1:
 			col += 1
 			names[word()] = ln
 	print(line)
-	# print(ln, line)
+	# print(ln, line).
