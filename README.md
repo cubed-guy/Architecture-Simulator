@@ -9,4 +9,4 @@ This circuit is a grid of registers.
 The rows depict inputs, while columns depict outputs.
 Each register in the grid will define if there is a connection between the respective I/O.
 
-More info on www.cubed_guy.com
+More info will be added later.
