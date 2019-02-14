@@ -1,4 +1,4 @@
-file = open("File.hx", "rb")
+file = open("Test.hx", "rb")
 ln   = 0
 
 ws = [9, 10, 13, 32]
@@ -27,4 +27,4 @@ while 1:
 			col += 1
 			names[word()] = ln
 	print(line)
-	# print(ln, line).
+	# print(ln, line)
