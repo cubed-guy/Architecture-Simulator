@@ -1,0 +1,5 @@
+$atoms = '$', '.', '{', '}', '(', ')', <bit>, <name>, <def>, <object> ;
+<main> = {<bit> or <object>{<null> or {'('<defs>')'}} or {'$'<def>}} {<null> or <main>} ;
+<object> = <name>{<null> or {'.'<object>}} ;
+<def> = <name>'{'<main>'}' ;
+<defs> = <def>{<null> or <defs>} ;
