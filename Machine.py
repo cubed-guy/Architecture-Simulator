@@ -1,29 +1,27 @@
-mem = [1] + [255]*255
-
-print("Reading...")
+Ghz = 3.0 #Billion cycles per second
 
 with open("File.lx", 'rb') as file:
-	i = 1
-	while 1:
-		char = file.read(1)
-		if char == b'': break
-		mem[i] = ord(char)
+	def give(string):
+		if len(string): return ord(string)
+		else: return 0
+	mem = [1]+list(map(lambda x: give(file.read(1)), [None]*255))
+	del give
 
-op = []
-for o in mem[196:]: op += [bool(a) for a in o]
-
-print("Running...")
-
-while 1:
+cycles = 0
+fetch = 1
+print(f"{fetch}: {mem[mem[fetch]]} from {mem[fetch+1]} to {mem[fetch]}")
+print(mem)
+while mem[0] != mem[mem[fetch]]:
+	if mem[0]>=255: break
 	fetch = mem[0]
-	destination, source = mem[fetch], mem[fetch+1]
-	mem[0] = fetch + 2
-	data = mem[destination] = mem[source]
-	if destination >= 196:
-		loc = (destination - 196)*8
-		data = [bool(int(a)) for a in str(data, 2)]
-		for a in range(8): op[loc+a] = data[a]
-	for main in range(16):
-		val = False
+	mem[0] += 2
+	mem[mem[fetch]] = mem[mem[fetch+1]]
+	print(f"{fetch}: {mem[mem[fetch]]} from {mem[fetch+1]} to {mem[fetch]}")
+
+	
 
 	cycles += 1
+else: print("InfiniteLoopError: Fetch assigning to itself.")
+print(f"Process completed in {cycles} cycles.\
+	({cycles/Ghz} nanoseconds on {Ghz}Ghz)")
+print(mem)
