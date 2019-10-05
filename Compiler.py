@@ -6,21 +6,63 @@ block ::= "{" *data "}"
 '''
 
 from string import *
-file = open('File.hx')
-out  = open('File.lx', 'wb')
-scope_level = 0
-while 1:
+
+def read():		#returns one character and stores it in <char>
+	global char
 	char = file.read(1)
-	if char == '': break
-	elif char == '#':
-		while char in '\n': file.read(1)
-	elif char == '{':
-		scope_level += 1
-	elif char == '}':
-		if scope_level <= 0: print("Unexcpected closing braces '}'."); break
-		scope_level -= 1
-	elif char in ascii_letters:
-		word = ''
-		while char in ascii_letters: word += char; char = file.read(1)
-		if word in hexdigits: out.write(bytes([int(char+file.read(1), 16)]))
-	elif char not in'\n\t\r ':print(f"Unsupported character '{char}'."); break
+	print(char, end = '')
+	return char
+
+def word():		#returns one word
+	print('Searching for words...')
+	while read() in '\n\t\r ': pass
+	print('\nWhitespaces eliminated.')
+	word = ''
+	while char in ascii_letters: word = read()
+	print('\nWord:', repr(word))
+	return word
+
+def write(name):	#writes the hex value or calls the identifier
+	if len(name)==2 and False not in [i in hexdigits for i in name]:
+		out.write(chr(int(name, 16)))
+	else: call(name)
+
+def call(identifier):	#writes the value refered by the identifier
+	print('\nCalling', repr(identifier))
+	global char
+	pos = file.tell()
+	file.seek(defs[identifier])
+	block()
+	file.seek(pos)
+
+def block():		#compiles the contents of a block
+	print(f'Entered a block at {file.tell()}.')
+	branch = 1
+	while branch > 0:
+		if read() == '{': branch += 1
+		elif char == '}': branch -= 1
+		elif char == '': print('Unexpected EOF.'); quit()
+		else: write(word())
+	print(f'Exited block at {file.tell()}.')
+
+file = open('File2.hx')
+out  = open('File.lx', 'w')
+char = ''
+defs = {}
+
+while 1:
+	name = word()
+	print('Is it a word?')
+	if name:
+		print('YES!')
+		if char == '{':
+			defs[name] = file.tell()
+			branch = 1
+			while branch > 0:
+				if read() == '{': branch += 1
+				elif char == '}': branch -= 1
+				elif char == '': print('Unexpected EOF.'); quit()
+		else: write(name)
+	elif char == '{': block()
+	elif char == '': break
+	else: print("NO.")
