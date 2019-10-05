@@ -1,51 +1,38 @@
-GHz = 4.0 #Billion cycles per second
-Loops = 5 #Loops OP is allowed to make per cycle
-
-with open("File.lx", 'rb') as file:	#read file
-	def give(string):
-		if len(string): return ord(string)
-		else: return 0
-	mem = [1]+list(map(lambda x: give(file.read(1)), [None]*255))
-	out = [0, 0, 0]
-	del give
-
-cycles = 0
-fetch = 0
-print(mem)
-
-while mem[0] != fetch:
-	fetch = mem[0]
-	mem[0] += 2
-
-	#getting data to be transferred
-	if mem[fetch+1] in range(37, 40):
-		Data = out[mem[fetch+1]-37]
-	else: Data = mem[mem[fetch+1]]
-
-	mem[mem[fetch]] = Data
-	print(f"{fetch}: {Data} from {mem[fetch+1]} to {mem[fetch]}")
-	print(f"OP output:{', '.join(list(map(lambda x: bin(x)[2:], out)))}")
-	#
-	#"".join(list(map(lambda x: bin(x)[2:], out)))
-	#"".join([bin1, bin2, bin3])
-	#bin1+bin2+bin3 -> str
-
-	#OP starts from mem[37]
-	#	mem[37:40]   -> IO
-	#	mem[40:112]  -> OP inputs Grid
-	#	mem[112:184] -> OP main Grid
-	# 	mem[184:256] -> OP inverted Grid
-
-	for i in range(Loops):
-
-		
-
+GHz = 4.0
+with open('File.lx') as file: s = file.read(127)
+mem = ([1]+[ord(i) for i in s]+[0]*127)[:128]
+file = open('MachineLog.csv', 'w')
+regs, cycles = 1, 0
+[file.write(str(i)+',') for i in range(128)], file.write('\n')
+[file.write(str(i)+',') for i in range(128, 256)], file.write('\n')
+while mem[0]+2*regs<128:
+	for m in mem: file.write(str(m)+',')
+	file.write('\n')
+	fetch = mem[0]&127
+	regs = 2**((mem[0]&0b1*128)//128)	#(mem[0]&0b1*128)//128 -> size (z)
+	print('regs:', regs)
+	# ins = tuple(mem[mem[fetch+2*i]]^(127*((mem[fetch+2*i]   & 0b1*128)//128))
+	# 							   ^(127*((mem[fetch+2*i+1] & 0b1*128)//128))
+	# 							   for i in range(regs))
+	ins = ()
+	for i in range(regs):
+		print(fetch+2*i, fetch+2*i+1)
+		print(mem[fetch+2*i], mem[fetch+2*i+1])
+		print(mem[mem[fetch+2*i]&127])
+		print((mem[fetch+2*i]   & 0b1*128)//128)
+		print((
+			mem[mem[fetch+2*i]&127]^(127*((mem[fetch+2*i]   & 0b1*128)//128))
+							   ^(127*((mem[fetch+2*i+1] & 0b1*128)//128)))
+		)
+		ins += tuple(
+			[mem[mem[fetch+2*i]&127]^(127*((mem[fetch+2*i]   & 0b1*128)//128))
+								^(127*((mem[fetch+2*i+1] & 0b1*128)//128))]
+			)
+	mem[0] += 2*regs
+	for i in range(regs): mem[mem[fetch+1+i*2]&127] = 0
+	for i in range(regs): mem[mem[fetch+1+i*2]&127] |= ins[i]
 	cycles += 1
-	if mem[0]>=255: break
-	elif mem[0] == 0:
-		print("FetchError: Fetch cannot be zero.")
-		break
-else: print("InfiniteLoopError: Fetch assigning to itself.")
-print(f"Process completed in {cycles} cycles.\
-	({cycles/GHz} nanoseconds on {GHz}GHz)")
-print(mem)
+	if mem[0] == fetch:
+		print("InfiniteLoopError: Fetch assigning to itself."); break
+print(f'Process completed in {cycles} cycles.\
+	({cycles/GHz} nanoseconds on {GHz}GHz)')

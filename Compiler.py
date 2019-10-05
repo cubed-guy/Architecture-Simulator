@@ -1,83 +1,26 @@
-#start compiler boilerplate
-file = open('File.hx', 'rb')
+'''V3 - block definition
+main ::= *(def | data)
+def ::= identifier block
+data ::= block | num | identifier
+block ::= "{" *data "}"
+'''
+
+from string import *
+file = open('File.hx')
 out  = open('File.lx', 'wb')
-
-names = {}
-ws = b"\n\t \r"
-lit = b'0123456789abcdef'
-ltr = [[a]+[a+32] for a in range(65, 91)]+[a for a in range(48, 58)]
-print(ltr)
-stack = []
-
-def err(msg="ERROR"): print(msg); quit()
-
-def word():
-	global char, file, ltr
-	name = ''
-	while 1:
-		char = file.read(1)
-		if not(ord(char) in ltr) or char == b'': break
-		name += chr(ord(char))
-		print(name)
-	return name
-
+scope_level = 0
 while 1:
 	char = file.read(1)
-	print(char)					
-	if   char == b'': break
-	elif char in ws: pass
-	#pause compiler boilerplate
-	#-----------------------------*** MAIN LOGIC ***---------------------------
-
-	#word
-	elif ord(char) in ltr:
-		name = chr(ord(char))
-		name += word()
-		print("Final name:", name)
-		print(len(name))
-		#byte
-		print([ord(a) in (l for l in lit) for a in name])
-		if len(name) == 2 and not(False in [ord(a) in (l for l in lit) for a in name]):
-			val = int(char + file.read(1), 16)
-			out.write(bytes([val]))
-		#identifier
-		else:
-			if name in (el[0] for el in stack): err(38)
-			stack.append((name, file.tell()))
-			file.seek(names[name])
-
-	#definition
-	elif char == b'+':
-		name = word()
-		if name == '': err(45)
-		if name in names: err(46)
-		while char in ws and char != b'': char = file.read(1)
-		if char == b'{':
-			names[name] = file.tell()
-			while 1:
-				char = file.read(1)
-				if   char == b'' : err(52)
-				elif char == b'{': err(53)
-				elif char == b'+': err(54)
-				elif char == b'}': break
-		else: err(56)
-
-	#exit
-	elif char == b'}':
-		file.seek(stack[-1][1])
-		if len(stack) > 0: del stack[-1]
-		else: err(62)
-
-	#comment
-	elif char == b'/':
-		char = file.read(1)
-		if char == b'/':
-			while not(char in b'\n'): char = file.read()
-		else: err(69)
-
-#resume compiler boilerplate
-	else: err(72)
-
-file.close()
-out.close()
-#end compiler boilerplate
+	if char == '': break
+	elif char == '#':
+		while char in '\n': file.read(1)
+	elif char == '{':
+		scope_level += 1
+	elif char == '}':
+		if scope_level <= 0: print("Unexcpected closing braces '}'."); break
+		scope_level -= 1
+	elif char in ascii_letters:
+		word = ''
+		while char in ascii_letters: word += char; char = file.read(1)
+		if word in hexdigits: out.write(bytes([int(char+file.read(1), 16)]))
+	elif char not in'\n\t\r ':print(f"Unsupported character '{char}'."); break

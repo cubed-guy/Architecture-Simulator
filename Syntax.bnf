@@ -1,0 +1,38 @@
+identifier ::= <continuous stream of upper and lowercase alphabets, underscores and digits that does not start with a digit>
+num ::= <two digit hexadecimal number (00-ff)>
+
+//V1 - only numbers
+main ::= *num
+
+//V2 - blocks
+main ::= *(num | block)
+block ::= "{" main "}"
+
+//V3 - block definition
+main ::= *(def | data)
+def ::= identifier block
+data ::= block | num | identifier
+block ::= "{" *data "}"
+
+//V4 - location reference
+main ::= *(def | data)
+def ::= identifier (block | ":" num)
+data ::= block | num | identifier
+block ::= "{" *data "}"
+
+//V5 - data templates
+main ::= *(def | data)
+def ::= identifier (block [args]| ":" num)
+data ::= block | num | identifier [args]
+block ::= "{" *data "}"
+args ::= "(" [identifier *("," identifier)] ")"
+
+
+//Final
+main ::= *(def | data)
+def ::= identifier (block [args] | ":" num)
+block ::= "{" main "}"
+args ::= "(" [name *("," name)] ")"
+data ::= block [fargs] | num | identifier [args]
+fargs ::= "(" [identifier block *("," identifier block)] ")"
+name ::= identifier ["." name]
