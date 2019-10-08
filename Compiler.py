@@ -4,18 +4,17 @@ def ::= identifier block
 data ::= block | num | identifier
 block ::= "{" *data "}"
 '''
-
+from os import system as cmd; cmd('cls'); del cmd
 from string import *
 
 def read():		#returns one character and stores it in <char>
 	global char
 	char = file.read(1)
-	print('    ** Read', repr(char), '**')
+	print('    Read', repr(char))
 	return char
 
 def word():		#returns one word
-	print('\nGetting Word...')
-	print('    Char is'+' not'*int(char not in '\n\t\r ')+r" in '\n\t\r '")
+	print('Getting Word...')
 	while char in '\n\t\r ':
 		read()
 		if char == '': print('** EOF **'); return ''
@@ -23,12 +22,11 @@ def word():		#returns one word
 	while char in ascii_letters+digits and char != '': word += char; read()
 	if char == '': print('    ** EOF **')
 	print('    Word:', repr(word))
-	print('    Char:', repr(char))
 	return word
 
 def write(name):	#writes the hex value or calls the identifier
 	if len(name)==2 and False not in [i in hexdigits for i in name]:
-		out.write(chr(int(name, 16))); print('    ** Write:', name, '**')
+		out.write(chr(int(name, 16))); print('    (hex)')
 	else: call(name)
 
 def call(identifier):	#writes the value refered by the identifier
@@ -42,13 +40,12 @@ def call(identifier):	#writes the value refered by the identifier
 def block():		#compiles the contents of a block
 	print(f'Entered a block at {file.tell()%(2**64)}.')
 	branch = 1
-	read()
 	while branch > 0:
-		print('    Branch level:', branch)
-		if   char == '{': branch += 1
+		if read() == '{': branch += 1
 		elif char == '}': branch -= 1
 		elif char == '': print('Unexpected EOF.'); quit()
 		else: write(word())
+		print('    Branch level:', branch)
 	read()
 	print(f'Exited block at {file.tell()}.')
 
@@ -59,11 +56,9 @@ defs = {}
 
 while 1:
 	name = word()
-
-	print('Is it a word?', end = ' ')
-	if not name: print('No')
+	if not name: print('Not a word.')
 	if name:
-		print('YES!')
+		print("It's a word.")
 		if char == '{':
 			defs[name] = file.tell()
 			branch = 1
