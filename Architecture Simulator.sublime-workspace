@@ -1,0 +1,425 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ba",
+				"baaz"
+			],
+			[
+				"backgroun",
+				"background-color\tproperty"
+			],
+			[
+				"bac",
+				"background-color\tproperty"
+			],
+			[
+				"u",
+				"unicode-bidi\tproperty"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "Compiler.py",
+			"settings":
+			{
+				"buffer_size": 1794,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "File2.hx",
+			"settings":
+			{
+				"buffer_size": 39,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Packages/Python/Python.sublime-build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 340.0,
+		"history":
+		[
+			"quit()",
+			"from os import system as cmd",
+			"os.system()",
+			"del os",
+			"import pygame",
+			"os.system(\"cls\")",
+			"import os",
+			"cls",
+			"bool(0)",
+			"quit()",
+			"python"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": false,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": true
+	},
+	"file_history":
+	[
+		"/C/Stuff/Code/Architecture-Simulator/Architecture-Simulator/Machine.py",
+		"/C/Stuff/Code/Architecture-Simulator/Architecture-Simulator/File2.hx",
+		"/C/Stuff/Code/Architecture-Simulator/Architecture-Simulator/Syntax.bnf",
+		"/C/Stuff/Code/Architecture-Simulator/Architecture-Simulator/Compiler.py",
+		"/C/Stuff/Code/Architecture Simulator/Architecture-Simulator/README.md",
+		"/C/Stuff/Code/Architecture Simulator/Architecture-Simulator/MachineLog.csv",
+		"/C/Stuff/Code/Architecture Simulator/Other/Machine.py",
+		"/C/Stuff/Code/Architecture Simulator/Machine.py",
+		"/C/Stuff/Code/pygame/001.py",
+		"/C/Users/Cubed/AppData/Roaming/Sublime Text 3/Packages/User/gocc.JSON-tmLanguage",
+		"/C/Stuff/Code/Simulator/Syntax.bnf",
+		"/C/Stuff/Code/#random/YamlLearning.yaml",
+		"/C/Users/Cubed/AppData/Roaming/Sublime Text 3/Packages/User/BNF.yaml",
+		"/C/Users/Cubed/AppData/Local/Temp/Temp1_sublime-gocc-syntax-master.zip/sublime-gocc-syntax-master/gocc.JSON-tmLanguage",
+		"/C/Stuff/Fun!/Life/ComputerTasks.txt",
+		"/C/Stuff/Code/AHK/script.ahk",
+		"/C/Stuff/Code/Architecture Simulator/File.lx",
+		"/C/Stuff/Code/Architecture Simulator/File2.hx",
+		"/C/Stuff/Code/Architecture Simulator/Machine2.py",
+		"/C/Stuff/Code/Architecture Simulator/numbers.py",
+		"/C/Stuff/Code/Architecture Simulator/alphabets.py",
+		"/C/Stuff/Code/Other/VowelConsonant.py",
+		"/C/Stuff/Code/Other/Schwitt!.txt",
+		"/C/Stuff/Code/Other/Schwitt!.py",
+		"/C/Stuff/Code/Architecture Simulator/Machine Log.txt",
+		"/C/Stuff/Code/Architecture Simulator/Layout4.png",
+		"/C/Stuff/Code/Architecture Simulator/Stars.py",
+		"/C/Stuff/Code/Architecture Simulator/SimpleCompiler.py",
+		"/C/Users/Cubed/AppData/Local/Temp/Temp1_metropolis.zip/SIL Open Font License.txt",
+		"/C/Users/Cubed/AppData/Roaming/Sublime Text 3/Packages/User/Package Control.sublime-settings",
+		"/C/Stuff/Code/Architecture Simulator/File3.hx",
+		"/C/Stuff/Code/pygame/pygameSn.py",
+		"/C/Stuff/Code/Architecture Simulator/Architecture-Simulator-Names-Feature/Machine4.py",
+		"/C/Stuff/Code/Architecture Simulator/Architecture-Simulator-Names-Feature/Simulator.py",
+		"/C/Stuff/Code/Architecture Simulator/Compiler.py",
+		"/C/Stuff/Code/Architecture Simulator/Compiler2.py",
+		"/C/Stuff/Code/Architecture Simulator/File.hx",
+		"/C/Stuff/Code/Architecture Simulator/Architecture-Simulator-Names-Feature/Tasks.md",
+		"/C/Stuff/Code/Web Development/css/styles.css",
+		"/C/Stuff/Code/Web Development/index.html",
+		"/C/Stuff/Code/Web Development/js/scripts.js",
+		"/C/Users/Cubed/AppData/Local/Microsoft/Windows/INetCache/IE/IOSCS2TL/QuickRide_logcat[1].txt",
+		"/C/Stuff/Code/Other/pygameSn.py",
+		"/C/Stuff/Code/Other/osmEthods.py",
+		"/C/Stuff/Code/Other/File Explorer.py",
+		"/C/Stuff/Code/Other/File Explorer",
+		"/C/Stuff/Code/Architecture Simulator/re/Compiler2.py",
+		"/C/Stuff/Code/Architecture Simulator/re/Compiler.py",
+		"/C/Stuff/Code/Architecture Simulator/re/c002.py",
+		"/C/Stuff/Code/Architecture Simulator/re/File.hx",
+		"/C/Stuff/Code/Architecture Simulator/re/m001.py",
+		"/C/Stuff/Code/Architecture Simulator/re/m003.py",
+		"/C/Stuff/Code/Architecture Simulator/re/m002.py",
+		"/C/Stuff/Fun!/Fast Typography/This is big analysis.txt",
+		"/C/Programs/Minecraft/updateLog.txt",
+		"/C/Programs/Minecraft/nativelog.txt",
+		"/C/Users/Cubed/AppData/Local/Temp/GoogleCrashHandler64.DMP",
+		"/C/Users/Cubed/AppData/Local/Temp/MinecraftLauncher.DMP",
+		"/C/Stuff/Code/Other/HEX.py",
+		"/C/Stuff/Code/Architecture Simulator/re/temp.txt",
+		"/C/Stuff/Code/Architecture Simulator/re/test",
+		"/C/Stuff/Code/Architecture Simulator/re/File.lx"
+	],
+	"find":
+	{
+		"height": 46.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"name",
+			"char",
+			"identifier",
+			"word",
+			"import",
+			"identifier",
+			"<",
+			"that",
+			"GHz",
+			"')\n",
+			"128",
+			"256",
+			"255",
+			"file",
+			"vowel",
+			"\")",
+			"consonant",
+			"lowercase",
+			"letters",
+			"l",
+			"out",
+			"val",
+			"op",
+			"//",
+			"op",
+			"j",
+			"outs",
+			"Ghz",
+			"(4)",
+			"^5^",
+			"*4*",
+			"&3&",
+			"%2%",
+			"#5#",
+			"#4#",
+			"#3#",
+			"#2#",
+			" 1 ",
+			"-1-",
+			"#",
+			"max",
+			"err"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"GHz",
+			"^4^",
+			"%5%",
+			"(4)",
+			"_3_",
+			"-2-",
+			"^5^",
+			"*4*",
+			"&3&",
+			"%2%",
+			"#1#",
+			" 1 ",
+			"Max"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Compiler.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1794,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "File2.hx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 39,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 46.0
+	},
+	"input":
+	{
+		"height": 172.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": false,
+	"output.exec":
+	{
+		"height": 271.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 265.0
+	},
+	"pinned_build_system": "",
+	"project": "Architecture Simulator.sublime-project",
+	"replace":
+	{
+		"height": 88.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\Stuff\\Code\\Architecture-Simulator\\Architecture Simulator.sublime-workspace"
+			]
+		],
+		"width": 488.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"last_automatic_layout":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		]
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 325.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+		"max_columns": 2
+	}
+}
