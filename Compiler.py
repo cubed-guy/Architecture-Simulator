@@ -10,15 +10,15 @@ from string import *
 def read():		#returns one character and stores it in <char>
 	global char
 	char = file.read(1)
-	print(char, end = '')
 	return char
 
 def word():		#returns one word
-	print('Searching for words...')
-	while read() in '\n\t\r ': pass
-	print('\nWhitespaces eliminated.')
+	print('\nGetting Word...')
+	print(repr(read()))
+	print(end = 'Whitespaces:')
+	while char in '\n\t\r ': print(repr(read())[1:-1], end = '')
 	word = ''
-	while char in ascii_letters: word = read()
+	while char in ascii_letters+digits: word += char; read()
 	print('\nWord:', repr(word))
 	return word
 
@@ -28,7 +28,7 @@ def write(name):	#writes the hex value or calls the identifier
 	else: call(name)
 
 def call(identifier):	#writes the value refered by the identifier
-	print('\nCalling', repr(identifier))
+	print('Calling', repr(identifier))
 	global char
 	pos = file.tell()
 	file.seek(defs[identifier])
@@ -52,7 +52,9 @@ defs = {}
 
 while 1:
 	name = word()
-	print('Is it a word?')
+	print('Char:', repr(char))
+
+	print('Is it a word?', end = ' ')
 	if name:
 		print('YES!')
 		if char == '{':
@@ -63,6 +65,10 @@ while 1:
 				elif char == '}': branch -= 1
 				elif char == '': print('Unexpected EOF.'); quit()
 		else: write(name)
+	else: print("No")
+	if char == '#':
+		print('**Comment')
+		while read() not in '\n': pass
 	elif char == '{': block()
 	elif char == '': break
 	else: print("NO.")
