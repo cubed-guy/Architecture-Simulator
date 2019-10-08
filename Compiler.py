@@ -19,7 +19,6 @@ def word():		#returns one word
 	while char in '\n\t\r ':
 		read()
 		if char == '': print('** EOF **'); return ''
-	print('    Eliminated whitespaces.')
 	word = ''
 	while char in ascii_letters+digits and char != '': word += char; read()
 	if char == '': print('    ** EOF **')
@@ -29,7 +28,7 @@ def word():		#returns one word
 
 def write(name):	#writes the hex value or calls the identifier
 	if len(name)==2 and False not in [i in hexdigits for i in name]:
-		out.write(chr(int(name, 16)))
+		out.write(chr(int(name, 16))); print('    ** Write:', name, '**')
 	else: call(name)
 
 def call(identifier):	#writes the value refered by the identifier
@@ -41,7 +40,7 @@ def call(identifier):	#writes the value refered by the identifier
 	file.seek(pos)
 
 def block():		#compiles the contents of a block
-	print(f'Entered a block at {file.tell()}.')
+	print(f'Entered a block at {file.tell()%(2**64)}.')
 	branch = 1
 	read()
 	while branch > 0:

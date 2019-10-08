@@ -1,5 +1,10 @@
-#random
-id{00 f0 ff 00}
-id
-de 34 32 02 22 22
-id
+#what to do? {}
+lemonade{
+	s 33 25 54 01
+}
+
+s{
+	00 05 05 01
+}
+
+lemonade 02 23 s
