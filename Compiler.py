@@ -49,7 +49,7 @@ def block():		#compiles the contents of a block
 	read()
 	print(f'Exited block at {file.tell()}.')
 
-file = open('File2.hx')
+file = open('File.hx')
 out  = open('File.lx', 'w')
 char = ''
 defs = {}
@@ -72,5 +72,5 @@ while 1:
 		print('    (Comment)')
 		while read() not in '\n': pass
 	elif char == '{': block()
-	elif char == '': break
+	elif char == '': print('Compiled successfully!'); break
 	else: print("NO.")
