@@ -4,7 +4,6 @@ def ::= identifier block
 data ::= block | num | identifier
 block ::= "{" *data "}"
 '''
-from os import system as cmd; cmd('cls'); del cmd
 from string import *
 
 def read():		#returns one character and stores it in <char>
@@ -35,18 +34,21 @@ def call(identifier):	#writes the value refered by the identifier
 	pos = file.tell()
 	file.seek(defs[identifier])
 	block()
+	print('Returned from', repr(identifier))
 	file.seek(pos)
 
 def block():		#compiles the contents of a block
 	print(f'Entered a block at {file.tell()%(2**64)}.')
+	global char
 	branch = 1
 	while branch > 0:
+		print('    Still in the block, char =', repr(char))
 		if read() == '{': branch += 1
 		elif char == '}': branch -= 1
 		elif char == '': print('Unexpected EOF.'); quit()
 		else: write(word())
+		read()
 		print('    Branch level:', branch)
-	read()
 	print(f'Exited block at {file.tell()}.')
 
 file = open('File.hx')
