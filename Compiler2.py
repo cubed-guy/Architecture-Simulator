@@ -1,8 +1,13 @@
+'''
+main ::= *(data|def)
+def ::= identifier block
+data ::= block | num | identifier
+block ::= "{" main "}"
+'''
 from string import *
 
 file = open('File.hx')
 out  = open('File.lx')
-defs = {}
 char = ''
 
 def read():
@@ -23,7 +28,8 @@ def call(defs, identifier):
 	print('Returned from', repr(identifier))
 	file.seek(pos)
 
-def block(defs):
+def block():
+	defs = {}
 	global char
 	branch = 1
 	while branch > 0:

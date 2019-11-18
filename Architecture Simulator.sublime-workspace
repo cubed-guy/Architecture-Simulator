@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"in",
+				"inBits"
+			],
+			[
+				"i",
+				"ifmain\tif __name__ == '__main__'"
+			],
+			[
+				"d",
+				"defs\tMethod"
+			],
+			[
 				"c",
 				"char"
 			],
@@ -28,76 +40,28 @@
 	"buffers":
 	[
 		{
-			"file": "Compiler.py",
+			"file": "Machine.py",
 			"settings":
 			{
-				"buffer_size": 2039,
+				"buffer_size": 1440,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "'''\nmain ::= *(data|def)\ndef ::= identifier block\ndata ::= block | num | identifier\nblock ::= \"{\" main \"}\"\n'''\nfrom string import *\n\nfile = open('File.hx')\nout  = open('File.lx')\nchar = ''\n\ndef read():\n\tglobal char\n\tchar = file.read()\n\tprint('    Read', repr(char))\n\treturn char\ndef write():\n\tif len(name)==2 and False not in [i in hexdigits for i in name]:\n\t\tout.write(chr(int(name, 16))); print('    (hex)')\n\telse: call(name)\ndef call(defs, identifier):\n\tprint('Calling', repr(identifier))\n\tglobal char\n\tpos = file.tell()\n\tfile.seek(defs[identifier])\n\tblock()\n\tprint('Returned from', repr(identifier))\n\tfile.seek(pos)\n\ndef block():\n\tdefs = {}\n\tglobal char\n\tbranch = 1\n\twhile branch > 0:\n\t\tif   char == '{': branch += 1\n\t\telif char == '}': branch -= 1\n\t\telif char == '' : print('Unexpected EOF'); quit()\n\t\telse: word(defs)\n\t\tread()\ndef word(defs):\n\twhile char.isspace(): read()\n\tword = ''\n\twhile char.isalnum(): word += char; read()\n\tif word:\n\t\tif char == '{':\n\t\t\tdefs[word] = file.tell()\n\t\t\tblock(defs)\n\n\t\t\t",
-			"file": "Compiler2.py",
-			"file_size": 944,
-			"file_write_time": 132151039187282186,
+			"file": "mem.py",
 			"settings":
 			{
-				"buffer_size": 1009,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Syntax.bnf",
-			"settings":
-			{
-				"buffer_size": 1023,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "#defs...\n0{00}\n#Easy?\n1{0 01 0}\n2{1 02 1}\n3{2 03 2}\t#not too interesting here\n4{3{04}3}\n5{4 05 4}\n6{5 06 5}\n7{6 07 6}\n8{7 08 7}\n9{8 09 8}\na{9 0a 9}\nb{a 0b a}\nc{b 0c b}\n#Mess?\ne{{c 0d c} 0e {c 0d c}}\n#DATA!!!\ne {0f e}",
-			"file": "File.hx",
-			"file_size": 234,
-			"file_write_time": 132150253082092272,
-			"settings":
-			{
-				"buffer_size": 216,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "File2.hx",
-			"settings":
-			{
-				"buffer_size": 62,
+				"buffer_size": 555,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "File2.lx",
+			"file": "MachineLog.csv",
 			"settings":
 			{
-				"buffer_size": 35,
-				"encoding": "Hexadecimal",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "File3.hx",
-			"settings":
-			{
-				"buffer_size": 47,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "File3.lx",
-			"settings":
-			{
-				"buffer_size": 35,
-				"encoding": "Hexadecimal",
+				"buffer_size": 1434,
 				"line_ending": "Windows"
 			}
 		}
@@ -169,10 +133,16 @@
 	],
 	"file_history":
 	[
-		"/C/Stuff/Code/#random/That_is_error.txt",
-		"/C/Stuff/Code/Architecture Simulator/File2.hx",
-		"/C/Stuff/Code/Architecture Simulator/README.md",
+		"/C/Stuff/Code/Architecture Simulator/Compiler.py",
+		"/C/Stuff/Code/Architecture Simulator/File3.lx",
 		"/C/Stuff/Code/Architecture Simulator/File3.hx",
+		"/C/Stuff/Code/Architecture Simulator/File2.lx",
+		"/C/Stuff/Code/Architecture Simulator/File2.hx",
+		"/C/Stuff/Code/Architecture Simulator/File.hx",
+		"/C/Stuff/Code/Architecture Simulator/Compiler2.py",
+		"/C/Stuff/Code/#random/timeLimit3.py",
+		"/C/Stuff/Code/#random/That_is_error.txt",
+		"/C/Stuff/Code/Architecture Simulator/README.md",
 		"/C/Stuff/Code/Architecture Simulator/Architecture Simulator.sublime-project",
 		"/C/Stuff/Code/Architecture-Simulator/Architecture-Simulator/Machine.py",
 		"/C/Stuff/Code/Architecture-Simulator/Architecture-Simulator/File2.hx",
@@ -206,9 +176,6 @@
 		"/C/Stuff/Code/pygame/pygameSn.py",
 		"/C/Stuff/Code/Architecture Simulator/Architecture-Simulator-Names-Feature/Machine4.py",
 		"/C/Stuff/Code/Architecture Simulator/Architecture-Simulator-Names-Feature/Simulator.py",
-		"/C/Stuff/Code/Architecture Simulator/Compiler.py",
-		"/C/Stuff/Code/Architecture Simulator/Compiler2.py",
-		"/C/Stuff/Code/Architecture Simulator/File.hx",
 		"/C/Stuff/Code/Architecture Simulator/Architecture-Simulator-Names-Feature/Tasks.md",
 		"/C/Stuff/Code/Web Development/css/styles.css",
 		"/C/Stuff/Code/Web Development/index.html",
@@ -237,7 +204,7 @@
 	],
 	"find":
 	{
-		"height": 46.0
+		"height": 56.0
 	},
 	"find_in_files":
 	{
@@ -251,6 +218,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"mem",
 			"out",
 			"file",
 			"character",
@@ -332,24 +300,24 @@
 	"groups":
 	[
 		{
-			"selected": 7,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "Compiler.py",
+					"file": "Machine.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2039,
+						"buffer_size": 1440,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1706,
-								1706
+								104,
+								10
 							]
 						],
 						"settings":
@@ -358,206 +326,67 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1779.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "Compiler2.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1009,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								178,
-								178
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 111.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "Syntax.bnf",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 1023,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								400,
-								400
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 111.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "File.hx",
+					"buffer": 1,
+					"file": "mem.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 216,
+						"buffer_size": 555,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								167,
-								167
+								50,
+								50
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Ruby/Ruby.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "File2.hx",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 62,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								43,
-								43
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "File2.lx",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 35,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								35,
-								35
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "File3.hx",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 47,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "File3.lx",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 35,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"auto_name": "",
+							"syntax": "Packages/Python/Python.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "MachineLog.csv",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1434,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
 					"type": "text"
 				}
 			]

@@ -6,6 +6,7 @@ regs, cycles = 1, 0
 [file.write(str(i)+',') for i in range(128)], file.write('\n')
 [file.write(str(i)+',') for i in range(128, 256)], file.write('\n')
 while mem[0]+2*regs<128:
+	print()
 	for m in mem: file.write(str(m)+',')
 	file.write('\n')
 	fetch = mem[0]&127
