@@ -1,6 +1,6 @@
 class mem(list):
 	"""docstring for mem"""
-	DEFAULT
+	# DEFAULT
 	def __init__(self, arg):
 		super(mem, self).__init__()
 		with open('File.lx') as file: s = file.read(127)
