@@ -40,28 +40,22 @@
 	"buffers":
 	[
 		{
+			"contents": "3f3 1b\n3f4 1c\n3f5 1d\n3f6 1e\n3f7 1f\n3f9 21\n3fa 22\n3fb 23\n3fc 24\n3fd 25\n3fe 26\n3ff 27\n\n48 65 6c 6c 6f 00 57 6f 72 6c 64 21 3ff\n",
+			"file": "File3.hx",
+			"file_size": 137,
+			"file_write_time": 132187349888315658,
+			"settings":
+			{
+				"buffer_size": 125,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "Let's make another compiler because why not.py",
 			"settings":
 			{
 				"buffer_size": 1800,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Compiler.py",
-			"settings":
-			{
-				"buffer_size": 2041,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Machine2.py",
-			"settings":
-			{
-				"buffer_size": 2074,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -76,11 +70,11 @@
 			}
 		},
 		{
-			"file": "File3.hx",
+			"file": "Machine2.py",
 			"settings":
 			{
-				"buffer_size": 131,
-				"encoding": "UTF-16 LE with BOM",
+				"buffer_size": 2083,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		}
@@ -153,6 +147,7 @@
 	"file_history":
 	[
 		"/C/Stuff/Code/Architecture Simulator/File3.lx",
+		"/C/Stuff/Code/Architecture Simulator/Compiler.py",
 		"/C/Stuff/Code/Architecture Simulator/File2.hx",
 		"/C/Stuff/Code/Architecture Simulator/Machine.py",
 		"/C/Stuff/Code/Architecture Simulator/Machine3.py",
@@ -161,7 +156,6 @@
 		"/C/Users/Cubed/Downloads/The stuff in the head is squishy (MDWA 19_11_2019).txt",
 		"/C/Users/Cubed/Downloads/SO this one[s about the architecture_It (MDWA 19_11_2019).txt",
 		"/C/Users/Cubed/Downloads/Stuff keeeps happening_I have (MDWA 19_11_2019).txt",
-		"/C/Stuff/Code/Architecture Simulator/Compiler.py",
 		"/C/Stuff/Code/Architecture Simulator/mem.py",
 		"/C/Stuff/Code/Architecture Simulator/MachineLog.csv",
 		"/C/Stuff/Code/Architecture Simulator/File3.hx",
@@ -244,6 +238,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"i",
 			"ord",
 			"0",
 			"my",
@@ -339,11 +334,39 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
+					"file": "File3.hx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 125,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								34,
+								33
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
 					"file": "Let's make another compiler because why not.py",
 					"semi_transient": false,
 					"settings":
@@ -364,36 +387,7 @@
 							"syntax": "Packages/Python/Python.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 999.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "Compiler.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2041,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1484,
-								1484
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1443.0,
+						"translation.y": 777.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
@@ -401,35 +395,6 @@
 				},
 				{
 					"buffer": 2,
-					"file": "Machine2.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2074,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1761,
-								1761
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1332.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
 					"file": "File3.lx",
 					"semi_transient": true,
 					"settings":
@@ -453,35 +418,36 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "File3.hx",
+					"buffer": 3,
+					"file": "Machine2.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 131,
+						"buffer_size": 2083,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								130,
-								130
+								2013,
+								2013
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Ruby/Ruby.sublime-syntax"
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]

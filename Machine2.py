@@ -6,15 +6,15 @@ cycles = 0
 
 mem = [1]
 with open('File3.lx', encoding = 'utf-16-le') as file: s = file.read(256)[1:]
-mem = ([1]+[ord(i) for i in s]+[0]*((1<<bits)-1))[:(1<<bits)+1]	#all mem
-print(s)
-print(mem)
+mem = ([1]+[ord(i) for i in s]+[0]*((1<<bits)-1))[:(1<<bits)]	#all mem
+# print(s)
+# print(mem)
 
 ei  = [0]*5								#explicit input for PU
 
 file = open('MachineLog.csv', 'w')
 [file.write(str(i)+',') for i in range(1<<bits)], file.write('\n')
-while mem[-1]<1<<bits:
+while mem[-1]<=1<<bits-1:
 	file.write(str(mem)[1:-1]+'\n')
 
 	size  = (mem[0]>>cSize)+1			#extract from first bits
@@ -52,7 +52,7 @@ while mem[-1]<1<<bits:
 				else: gReg += 5			#inc gReg to compensate not processing
 
 	print('\r', end = '', flush = True)
-	for i in mem[1011:]: print(chr(i), end = '')
+	for i in mem[1011:-1]: print(chr(i), end = '')
 
 	cycles += 1
 
@@ -65,4 +65,4 @@ while mem[-1]<1<<bits:
 	# Extra		1011	1023	13
 	# Total		0		1023	1024
 
-print(f'Process completed in {cycles} cycles. ({cycles/GHz}ns on {GHZ}GHz)')
+print(f'\nProcess completed in {cycles} cycles. ({cycles/GHz}ns on {GHz}GHz)')
