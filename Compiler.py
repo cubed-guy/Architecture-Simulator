@@ -51,8 +51,8 @@ def block():		#compiles the contents of a block
 		print('    Branch level:', branch)
 	print(f'Exited block at {file.tell()}.')
 
-file = open('File.hx')
-out  = open('File.lx', 'w')
+file = open('File3.hx')
+out  = open('File3.lx', 'w')
 char = ''
 defs = {}
 

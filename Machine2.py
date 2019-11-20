@@ -1,16 +1,22 @@
 bits = 10
 cSize = 8 								#log2 of the total regs in CU
 puLoops = 4								#number of PU loops per cycle
+GHz  = 4.0
+cycles = 0
 
-mem = [1]+[0]*((1<<bits)-1)				#all mem
+mem = [1]
+with open('File3.lx', encoding = 'utf-16-le') as file: s = file.read(256)[1:]
+mem = ([1]+[ord(i) for i in s]+[0]*((1<<bits)-1))[:(1<<bits)+1]	#all mem
+print(s)
+print(mem)
+
 ei  = [0]*5								#explicit input for PU
 
-#assign function (for clean code)
-def asn(destination, source):
-	if destination not in range(256, 261): mem[destination] |= mem[source]
-	else: ei[destination-256] |= mem[source]   #if destination happens to be ei
+file = open('MachineLog.csv', 'w')
+[file.write(str(i)+',') for i in range(1<<bits)], file.write('\n')
+while mem[-1]<1<<bits:
+	file.write(str(mem)[1:-1]+'\n')
 
-while 1:
 	size  = (mem[0]>>cSize)+1			#extract from first bits
 	fetch = mem[0]&(1<<cSize)-1			#extract from last  bits
 	
@@ -18,12 +24,16 @@ while 1:
 	
 	#reset destination values to support OR operation
 	for i in range(size):
-		if mem[fetch+2*i] not in range(256, 261): mem[mem[fetch+2*i]] = 0
-		else: ei[mem[fetch+2*i]-256] = 0	  #if destination happens to be ei
+		if mem[fetch+2*i] not in range(256, 261):
+			mem[mem[fetch+2*i]    ] = 0   #But what if it's one of the sources?
+		else:ei[mem[fetch+2*i]-256] = 0	  #if destination happens to be ei
 
 	#assign to destination values
-	for i in range(size): asn(mem[fetch+2*i], mem[fetch+1+2*i])
-	
+	for i in range(size):
+		if mem[fetch+2*i] not in range(256, 261):
+			mem[mem[fetch+2*i]    ] |= mem[mem[fetch+1+2*i]]
+		else:ei[mem[fetch+2*i]-256] |= mem[mem[fetch+1+2*i]]
+
 	# if mem[0] == fetch: raise RecursionError('Stagnating fetch')
 
 
@@ -41,6 +51,11 @@ while 1:
 
 				else: gReg += 5			#inc gReg to compensate not processing
 
+	print('\r', end = '', flush = True)
+	for i in mem[1011:]: print(chr(i), end = '')
+
+	cycles += 1
+
 	# All the parts and their indices
 
 	# Part		From	To		Total
@@ -49,3 +64,5 @@ while 1:
 	# PU grid	261		1010	750
 	# Extra		1011	1023	13
 	# Total		0		1023	1024
+
+print(f'Process completed in {cycles} cycles. ({cycles/GHz}ns on {GHZ}GHz)')
